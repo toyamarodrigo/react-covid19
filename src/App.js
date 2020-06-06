@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import { Cards, CountryPicker } from './components';
 import styles from './App.module.css';
@@ -38,13 +39,20 @@ export default class App extends Component {
   render() {
     const { data } = this.state;
     return (
-      <div className={styles.container}>
-        <Cards data={data} />
-        <CountryPicker
-          handleCountryChange={this.handleCountryChange}
-        />
-        <div className={styles.source}>Source: <a href="https://covid19api.com/">https://covid19api.com/</a></div>
-      </div>
+      <Route
+        exact
+        path="/"
+        render={() => (
+          <div className={styles.container}>
+            <Cards data={data} />
+            <CountryPicker handleCountryChange={this.handleCountryChange} />
+            <div className={styles.source}>
+              Source:{' '}
+              <a href="https://covid19api.com/">https://covid19api.com/</a>
+            </div>
+          </div>
+        )}
+      />
     );
   }
 }
