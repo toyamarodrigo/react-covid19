@@ -1,13 +1,20 @@
 import React from "react";
+import { Heading, SimpleGrid, Stack } from "@chakra-ui/react";
 
-import { useGetAllCovidSummaryQuery } from "../services/covid19";
+import { BasicLayout } from "../layout";
+import { CardList } from "../components/CardList";
+
+console.log("pre-render Home");
 
 export const Home = () => {
-  const { data, isLoading } = useGetAllCovidSummaryQuery();
+  console.log("render Home");
 
   return (
-    <div>
-      <h1>Home</h1>
-    </div>
+    <BasicLayout>
+      <Stack alignItems="center" justifyContent="center" spacing={16}>
+        <Heading as="h1">React COVID-19</Heading>
+        <CardList />
+      </Stack>
+    </BasicLayout>
   );
 };

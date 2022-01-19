@@ -17,13 +17,14 @@ interface Country {
   Date: Date;
 }
 
-interface Global {
-  NewConfirmed: number;
-  TotalConfirmed: number;
-  NewDeaths: number;
-  TotalDeaths: number;
-  NewRecovered: number;
-  TotalRecovered: number;
+export interface Global {
+  NewConfirmed?: number;
+  TotalConfirmed?: number;
+  NewDeaths?: number;
+  TotalDeaths?: number;
+  NewRecovered?: number;
+  TotalRecovered?: number;
+  Date?: Date;
 }
 
 export interface CountryTotalStatus {
@@ -45,4 +46,10 @@ export interface WorldWip {
   TotalConfirmed: number;
   TotalDeaths: number;
   TotalRecovered: number;
+}
+
+export enum CardType {
+  INFECTED = "Infected",
+  RECOVERED = "Recovered",
+  DEATHS = "Deaths",
 }
