@@ -1,3 +1,7 @@
+export interface AppState {
+  selectedCountry: CountryOption;
+}
+
 export interface CovidSummary {
   Global: Global;
   Countries: Country[];
@@ -40,6 +44,9 @@ export interface CountryTotalStatus {
   Recovered: number;
   Active: number;
   Date: Date;
+  Premium?: Object;
+  label?: string;
+  value?: string;
 }
 
 export interface WorldWip {
@@ -47,6 +54,29 @@ export interface WorldWip {
   TotalDeaths: number;
   TotalRecovered: number;
 }
+
+export interface CountryOption {
+  label: string;
+  value?: Value;
+  slug?: string;
+}
+
+interface Value {
+  ID?: string;
+  Country: string;
+  CountryCode: string;
+  Slug: string;
+  NewConfirmed: number;
+  TotalConfirmed: number;
+  NewDeaths: number;
+  TotalDeaths: number;
+  NewRecovered: number;
+  TotalRecovered: number;
+  Date: Date;
+  Premium?: Premium;
+}
+
+interface Premium {}
 
 export enum CardType {
   INFECTED = "Infected",

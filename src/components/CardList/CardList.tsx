@@ -4,46 +4,42 @@ import { Grid, GridItem, Spinner } from "@chakra-ui/react";
 import { useGetAllCovidSummaryQuery } from "../../services/covid19";
 import { Card } from "../Card";
 import { CardType } from "../../model/covid";
+import { useAppSelector } from "../../app/hooks";
+import { SkeletonCard } from "../SkeletonCard";
 
 console.log("pre-render CardList");
 
 export const CardList = () => {
-  const { data, isSuccess, isLoading } = useGetAllCovidSummaryQuery();
+  const { isSuccess, isLoading } = useGetAllCovidSummaryQuery();
+  const selectedCountry = useAppSelector((state) => state.app.selectedCountry);
 
-  const globalData = useMemo(() => {
-    return data?.Global;
-  }, [data?.Global]);
-
-  const countriesData = useMemo(() => {
-    return data?.Countries;
-  }, [data?.Countries]);
-
-  console.log("globalData :>> ", globalData);
-  console.log("countriesData :>> ", countriesData);
+  console.log("render CardList");
 
   return (
     <Grid gap={8} spacing={8} templateColumns="repeat(3, 1fr)">
       {isLoading && (
-        <GridItem colSpan={3}>
-          <Spinner />
-        </GridItem>
+        <>
+          <SkeletonCard />
+          <SkeletonCard />
+          <SkeletonCard />
+        </>
       )}
       {isSuccess && (
         <>
           <Card
-            newData={globalData?.NewConfirmed}
+            newData={selectedCountry?.value?.NewConfirmed}
             title={CardType.INFECTED}
-            totalData={globalData?.TotalConfirmed}
+            totalData={selectedCountry?.value?.TotalConfirmed}
           />
           <Card
-            newData={globalData?.NewRecovered}
+            newData={selectedCountry?.value?.NewRecovered}
             title={CardType.RECOVERED}
-            totalData={globalData?.TotalRecovered}
+            totalData={selectedCountry?.value?.TotalRecovered}
           />
           <Card
-            newData={globalData?.NewDeaths}
+            newData={selectedCountry?.value?.NewDeaths}
             title={CardType.DEATHS}
-            totalData={globalData?.TotalDeaths}
+            totalData={selectedCountry?.value?.TotalDeaths}
           />
         </>
       )}
