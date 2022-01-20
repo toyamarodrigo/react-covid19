@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { RootState } from "../app/store";
-import { AppState } from "../model/covid";
+import { AppState, CountryOption } from "../model/covid";
 
 const initialState: AppState = {
   selectedCountry: {
@@ -13,7 +13,7 @@ const appSlice = createSlice({
   name: "app",
   initialState,
   reducers: {
-    selectedCountry: (state, action) => {
+    selectedCountry: (state, action: PayloadAction<CountryOption>) => {
       state.selectedCountry = action.payload;
     },
   },
