@@ -5,7 +5,7 @@ export interface AppState {
 export interface CovidSummary {
   Global: Global;
   Countries: Country[];
-  Date: Date;
+  Date: string;
 }
 
 interface Country {
@@ -18,7 +18,7 @@ interface Country {
   TotalDeaths: number;
   NewRecovered: number;
   TotalRecovered: number;
-  Date: Date;
+  Date: string;
 }
 
 export interface Global {
@@ -28,7 +28,7 @@ export interface Global {
   TotalDeaths?: number;
   NewRecovered?: number;
   TotalRecovered?: number;
-  Date?: Date;
+  Date?: string;
 }
 
 export interface CountryTotalStatus {
@@ -43,7 +43,7 @@ export interface CountryTotalStatus {
   Deaths: number;
   Recovered: number;
   Active: number;
-  Date: Date;
+  Date: string;
   Premium?: Object;
   label?: string;
   value?: string;
@@ -57,7 +57,7 @@ export interface WorldWip {
 
 export interface CountryOption {
   label: string;
-  value?: Value;
+  value: Value;
   slug?: string;
 }
 
@@ -72,7 +72,7 @@ interface Value {
   TotalDeaths: number;
   NewRecovered: number;
   TotalRecovered: number;
-  Date: Date;
+  Date: string;
   Premium?: Premium;
 }
 

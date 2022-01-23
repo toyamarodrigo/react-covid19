@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { Grid, GridItem, Spinner } from "@chakra-ui/react";
+import { Grid, GridItem, Spinner, Text } from "@chakra-ui/react";
 
 import { useGetAllCovidSummaryQuery } from "../../services/covid19";
 import { Card } from "../Card";
@@ -27,20 +27,25 @@ export const CardList = () => {
       {isSuccess && (
         <>
           <Card
-            newData={selectedCountry?.value?.NewConfirmed}
+            newData={selectedCountry.value.NewConfirmed}
             title={CardType.INFECTED}
-            totalData={selectedCountry?.value?.TotalConfirmed}
+            totalData={selectedCountry.value.TotalConfirmed}
           />
           <Card
-            newData={selectedCountry?.value?.NewRecovered}
+            newData={selectedCountry.value.NewRecovered}
             title={CardType.RECOVERED}
-            totalData={selectedCountry?.value?.TotalRecovered}
+            totalData={selectedCountry.value.TotalRecovered}
           />
           <Card
-            newData={selectedCountry?.value?.NewDeaths}
+            newData={selectedCountry.value.NewDeaths}
             title={CardType.DEATHS}
-            totalData={selectedCountry?.value?.TotalDeaths}
+            totalData={selectedCountry.value.TotalDeaths}
           />
+          <GridItem colStart={2}>
+            <Text fontWeight={600} textAlign="center">
+              Last update: {selectedCountry.value.Date.substring(0, 10)}
+            </Text>
+          </GridItem>
         </>
       )}
     </Grid>

@@ -6,6 +6,18 @@ import { AppState, CountryOption } from "../model/covid";
 const initialState: AppState = {
   selectedCountry: {
     label: "Global",
+    value: {
+      Country: "",
+      CountryCode: "",
+      Slug: "",
+      NewConfirmed: 0,
+      TotalConfirmed: 0,
+      NewDeaths: 0,
+      TotalDeaths: 0,
+      NewRecovered: 0,
+      TotalRecovered: 0,
+      Date: new Date().toISOString(),
+    },
   },
 };
 
