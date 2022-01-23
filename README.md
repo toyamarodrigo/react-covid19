@@ -6,7 +6,4 @@ Project for learning purposes.
 
 Demo: <https://toyamarodrigo.github.io/react-covid19/>
 
-## Screenshot
-
-Home:
-![Home](https://i.imgur.com/W9odR0C.png)
+## Screenshots
