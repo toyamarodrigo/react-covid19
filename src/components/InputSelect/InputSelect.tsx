@@ -6,14 +6,11 @@ import { useGetAllCovidSummaryQuery } from "../../services/covid19";
 import { useAppDispatch, useAppSelector } from "../../app/hooks";
 import { selectedCountry } from "../../features/appSlice";
 import { CountryOption } from "../../model/covid";
-console.log("pre-render InputSelect");
 
 export const InputSelect = () => {
   const { data, isLoading, isSuccess } = useGetAllCovidSummaryQuery();
   const countrySelected = useAppSelector((state) => state.app.selectedCountry);
   const dispatch = useAppDispatch();
-
-  console.log("render InputSelect");
 
   const countriesOptions: any[] = useMemo(() => {
     return [

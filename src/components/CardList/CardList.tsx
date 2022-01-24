@@ -7,13 +7,9 @@ import { CardType } from "../../model/covid";
 import { useAppSelector } from "../../app/hooks";
 import { SkeletonCard } from "../SkeletonCard";
 
-console.log("pre-render CardList");
-
 export const CardList = () => {
   const { isSuccess, isLoading } = useGetAllCovidSummaryQuery();
   const selectedCountry = useAppSelector((state) => state.app.selectedCountry);
-
-  console.log("render CardList");
 
   return (
     <Grid gap={8} spacing={8} templateColumns="repeat(3, 1fr)">

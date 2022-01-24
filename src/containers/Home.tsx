@@ -4,11 +4,7 @@ import { Box, Heading, Link, Stack } from "@chakra-ui/react";
 import { BasicLayout } from "../layout";
 import { CardList, InputSelect } from "../components";
 
-console.log("pre-render Home");
-
 export const Home = () => {
-  console.log("render Home");
-
   return (
     <BasicLayout>
       <Stack alignItems="center" justifyContent="center" spacing={16}>

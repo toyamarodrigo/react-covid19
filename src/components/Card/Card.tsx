@@ -4,8 +4,6 @@ import CountUp from "react-countup";
 
 import { CardType } from "../../model/covid";
 
-console.log("pre-render Card");
-
 interface Props {
   title: string;
   newData: number;
@@ -13,7 +11,6 @@ interface Props {
 }
 
 export const Card = (props: Props) => {
-  console.log("render Card");
   const { title, newData, totalData } = props;
 
   const bgColor = useMemo(() => {
